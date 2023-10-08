@@ -18,20 +18,21 @@
                     "type":"quantitative"
                 },
                 "color": {"field": "State"},
-                "xOffset": {"field": "State"},
-                "tooltip": [
-                    {"title":"Purpose","field":"Purpose","type":"nominal"},
-                    {"title":"State","field": "State", "type":"nominal"},
-                    {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f"}
-                ]
+                "xOffset": {"field": "State"}
             }
         },
         {
-            "mark": {"type": "text","align": "right","baseline": "middle"},
+            "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+            "mark": {"type": "text","centre": "left","baseline": "middle"},
             "encoding": {
-                "text": {"aggregate":"sum","field": "Trips","type": "quantitative"},
-                "color": {"value": "black"}
-            }
+                "text": {"aggregate":"sum","field": "Trips","type": "quantitative","format":".0s"},
+                "x": {"field":"Purpose","type":"nominal"}
+            },
+            "tooltip": [
+                {"title":"Purpose","field":"Purpose","type":"nominal"},
+                {"title":"State","field": "State", "type":"nominal"},
+                {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f"}
+            ]
         }
     ]
 }

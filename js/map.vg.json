@@ -91,7 +91,6 @@
         ],
         "mark":"text",
         "encoding": {
-            "text": {"field":"Region","type":"nominal"},
             "longitude": {"field":"longitude","type":"quantitative"},
             "latitude": {"field":"latitude","type":"quantitative"}
         }
