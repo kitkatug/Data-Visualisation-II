@@ -1,6 +1,7 @@
 {
     "$shema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":"Most Popular State Travelled To",
+    "width":800,
     "layer": [
         {
             "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
@@ -16,8 +17,8 @@
                     "field":"Trips",
                     "type":"quantitative"
                 },
-                "xOffset": {"field": "State"},
-                "color": {"field": "State"}
+                "color": {"field": "State"},
+                "xOffset": {"field": "State"}
             }
         },
         {
