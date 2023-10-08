@@ -6,7 +6,7 @@
     "layer": [
     {
         "data": {
-        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/ne_50m.json",
+        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/js/ne_50m.json",
         "format": {"type": "topojson", "feature":"ne_50m_ocean"}
         },
         "projection": {"type": "equirectangular"},
@@ -14,7 +14,7 @@
     },
     {
         "data": {
-        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/ne_50m.json",
+        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/js/ne_50m.json",
         "format": {"type": "topojson", "feature":"ne_50m_admin_1_states_provinces"}
         },
         "projection": {"type": "equirectangular"},
@@ -22,7 +22,7 @@
     },
     {
         "data":{
-            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/airBnbPos.csv"
+            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/airBnbPos.csv"
         },
         "projection": {"type": "equirectangular"},
         "mark": {"type":"circle","fill":"palevioletred","stroke":"palevioletred"},
@@ -36,7 +36,7 @@
     },
     {
         "data": {
-            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/tourism.csv"
+            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"
         },
         "params": [
             {

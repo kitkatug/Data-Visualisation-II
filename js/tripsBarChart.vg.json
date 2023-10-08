@@ -3,7 +3,7 @@
     "title":"Most Popular State Travelled To",
     "layer": [
         {
-            "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/tourism.csv"},
+            "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
             "mark":{
                 "type":"bar",
                 "point":true
