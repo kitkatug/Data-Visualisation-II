@@ -45,6 +45,10 @@
                 "bind": {"name":"Purpose of Trip","input":"select","options": ["Business","Visiting","Holiday","Other"]}
             }
         ],
+        "transform": [
+            {"filter":"datum['Purpose'] === purp"},
+            {"filter": "datum['Purpose'] === 'Business' ||datum['Purpose'] === 'Visiting'|| datum['Purpose'] === 'Holiday'||datum['Purpose'] === 'Other'"}
+        ],
         "projection": {"type": "equirectangular"},
         "mark": {
             "type": "circle"
@@ -53,18 +57,13 @@
             "longitude": {"field": "Longitude", "type":"quantitative"},
             "latitude": {"field": "Latitude", "type":"quantitative"},
             "color": {
-                "condition": {
-                    "param": "purp",
-                    "field": "Purpose",
-                    "type": "ordinal",
-                    "scale": {
-                        "range": ["red","blue","green","purple"]
-                    }
-                },
-                "value":"null"
+                "field": "Purpose",
+                "type": "ordinal",
+                "scale": {
+                    "range": ["red","blue","green","purple"]
+                }
             },
             "size": {
-                "aggregate":"sum",
                 "field": "Trips",
                 "type": "quantitative"
             },

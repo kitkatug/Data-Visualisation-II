@@ -18,7 +18,12 @@
                     "type":"quantitative"
                 },
                 "color": {"field": "State"},
-                "xOffset": {"field": "State"}
+                "xOffset": {"field": "State"},
+                "tooltip": [
+                    {"title":"Purpose","field":"Purpose","type":"nominal"},
+                    {"title":"State","field": "State", "type":"nominal"},
+                    {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f"}
+                ]
             }
         },
         {
