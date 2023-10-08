@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "Most Popular Tourisim Spots vs AirBnb Locations",
+    "layer": [
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/ne_50m.json",
+        "format": {"type": "topojson", "feature":"ne_50m_ocean"}
+        },
+        "projection": {"type": "equirectangular"},
+        "mark": {"type": "geoshape", "fill": "lightblue", "stroke":"white"}
+    },
+    {
+        "data": {
+        "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/ne_50m.json",
+        "format": {"type": "topojson", "feature":"ne_50m_admin_1_states_provinces"}
+        },
+        "projection": {"type": "equirectangular"},
+        "mark": {"type": "geoshape", "fill": "lightgoldenrodyellow", "stroke":"black"}
+    },
+    {
+        "data":{
+            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/airBnbPos.csv"
+        },
+        "projection": {"type": "equirectangular"},
+        "mark": {"type":"circle","fill":"palevioletred","stroke":"palevioletred"},
+        "encoding": {
+            "longitude": {"field":"longitude", "type": "quantitative"},
+            "latitude": {"field":"latitude", "type": "quantitative"},
+            "size": {
+                "value":1
+            }
+        }
+    },
+    {
+        "data": {
+            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/tourism.csv"
+        },
+        "params": [
+            {
+                "name":"purp",
+                "select": {"type": "point", "fields":["Purpose"]},
+                "bind": {"name":"Purpose of Trip","input":"select","options": ["Business","Visiting","Holiday","Other"]}
+            }
+        ],
+        "projection": {"type": "equirectangular"},
+        "mark": {
+            "type": "circle",
+            "tooltip": {
+                "content": "data"}
+            },
+        "encoding": {
+            "longitude": {"field": "Longitude", "type":"quantitative"},
+            "latitude": {"field": "Latitude", "type":"quantitative"},
+            "color": {
+                "condition": {
+                    "param": "purp",
+                    "field": "Purpose",
+                    "type": "ordinal",
+                    "scale": {
+                        "range": ["red","blue","green","purple"]
+                    }
+                },
+                "value":"transparent"
+            },
+            "size": {
+                "field": "Trips",
+                "type": "quantitative"
+            }
+        }
+    }
+    ]
+}

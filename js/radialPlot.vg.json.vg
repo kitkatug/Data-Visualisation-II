@@ -1,0 +1,21 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple radial chart with embedded data.",
+    "data": {
+      "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/airBnbPos.csv"
+    },
+    "layer": [{
+      "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
+    },{
+      "mark": {"type": "text", "radiusOffset": 10},
+      "encoding": {
+        "text": {"aggregate":"average","field": "price", "type": "quantitative"}
+      }
+    }],
+    "encoding": {
+      "theta": {"aggregate":"average","field": "price", "type": "quantitative", "stack": true},
+      "radius": {"field": "State", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
+      "color": {"field": "State", "type": "nominal", "legend": null}
+    }
+  }
+  
