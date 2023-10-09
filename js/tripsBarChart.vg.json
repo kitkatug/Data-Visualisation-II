@@ -18,21 +18,37 @@
                     "type":"quantitative"
                 },
                 "color": {"field": "State"},
-                "xOffset": {"field": "State"}
+                "xOffset": {"field": "State"},
+                "tooltip": [
+                    {"title":"Purpose","field":"Purpose","type":"nominal"},
+                    {"title":"State","field": "State", "type":"nominal"},
+                    {"title":"Trips","field": "Trips", "type":"quantitative","aggregate":"sum","format":".0f"}
+                ]
             }
         },
         {
             "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-            "mark": {"type": "text","centre": "left","baseline": "middle"},
+            "mark": {"type": "text","dy":-60},
             "encoding": {
                 "text": {"aggregate":"sum","field": "Trips","type": "quantitative","format":".0s"},
                 "x": {"field":"Purpose","type":"nominal"}
-            },
-            "tooltip": [
-                {"title":"Purpose","field":"Purpose","type":"nominal"},
-                {"title":"State","field": "State", "type":"nominal"},
-                {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f"}
-            ]
+            }
+        },
+        {
+            "data": {"values": [{}]},
+            "mark": {"type": "text","dx":-285,"dy":-75,"text": ["Total Trips:"],"fontWeight":"bold"}
+        },
+        {
+            "data": {"values": [{}]},
+            "mark": {"type": "text","dx":-95,"dy":-75,"text": ["Total Trips:"],"fontWeight":"bold"}
+        },
+        {
+            "data": {"values": [{}]},
+            "mark": {"type": "text","dx":100,"dy":-75,"text": ["Total Trips:"],"fontWeight":"bold"}
+        },
+        {
+            "data": {"values": [{}]},
+            "mark": {"type": "text","dx":285,"dy":-75,"text": ["Total Trips:"],"fontWeight":"bold"}
         }
     ]
 }

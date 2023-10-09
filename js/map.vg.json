@@ -76,9 +76,8 @@
         }
     },
     {
-        "data": {
-            "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"
-        },
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "equirectangular"},
         "transform": [
             {
                 "filter": {
@@ -89,10 +88,11 @@
                 }
             }
         ],
-        "mark":"text",
+        "mark": {"type": "text"},
         "encoding": {
-            "longitude": {"field":"longitude","type":"quantitative"},
-            "latitude": {"field":"latitude","type":"quantitative"}
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
         }
     }
     ]
