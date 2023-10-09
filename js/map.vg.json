@@ -42,12 +42,12 @@
             {
                 "name":"purp",
                 "select": {"type": "point", "fields":["Purpose"]},
-                "bind": {"name":"Purpose of Trip","input":"select","options": ["Business","Visiting","Holiday","Other"]}
+                "bind": {"name":"Purpose of Trip","input":"select","options": [null,"Business","Visiting","Holiday","Other"]}
             }
         ],
         "projection": {"type": "equirectangular"},
         "mark": {
-            "type": "circle"
+            "type": "point", "strokeWidth": 3
             },
         "encoding": {
             "longitude": {"field": "Longitude", "type":"quantitative"},
@@ -61,7 +61,7 @@
                         "range": ["red","blue","green","purple"]
                     }
                 },
-                "value":"null"
+                "value":"transparent"
             },
             "size": {
                 "aggregate":"sum",
@@ -71,7 +71,7 @@
             "tooltip": [
                 {"title":"Purpose","field":"Purpose","type":"nominal"},
                 {"title":"State","field": "State", "type":"nominal"},
-                {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f"}
+                {"title":"Trips","field": "Trips", "type":"quantitative", "format":".0f","aggregate":"sum"}
             ]
         }
     },
@@ -83,12 +83,92 @@
                 "filter": {
                     "field": "Region",
                     "oneOf": [
-                        "Sydney", "Melbourne","Perth", "Darwin", "Canberra", "Brisbane", "Hobart","Adelaide"
+                        "Melbourne", "Brisbane", "Hobart"
                     ]
                 }
             }
         ],
-        "mark": {"type": "text"},
+        "mark": {"type": "text","fontSize":15,"dx":35,"dy":25},
+        "encoding": {
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
+        }
+    },
+    {
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "equirectangular"},
+        "transform": [
+            {
+                "filter": {
+                    "field": "Region",
+                    "oneOf": [
+                        "Sydney", "Canberra"
+                    ]
+                }
+            }
+        ],
+        "mark": {"type": "text","fontSize":15,"dx":45},
+        "encoding": {
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
+        }
+    },
+    {
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "equirectangular"},
+        "transform": [
+            {
+                "filter": {
+                    "field": "Region",
+                    "oneOf": [
+                        "Perth"
+                    ]
+                }
+            }
+        ],
+        "mark": {"type": "text","fontSize":15,"dx":-25},
+        "encoding": {
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
+        }
+    },
+    {
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "equirectangular"},
+        "transform": [
+            {
+                "filter": {
+                    "field": "Region",
+                    "oneOf": [
+                        "Darwin"
+                    ]
+                }
+            }
+        ],
+        "mark": {"type": "text","fontSize":15,"dy":-25},
+        "encoding": {
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
+        }
+    },
+    {
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "equirectangular"},
+        "transform": [
+            {
+                "filter": {
+                    "field": "Region",
+                    "oneOf": [
+                        "Adelaide"
+                    ]
+                }
+            }
+        ],
+        "mark": {"type": "text","fontSize":15,"dx":-25,"dy":-25},
         "encoding": {
             "text": {"field": "Region","type": "nominal"},
             "longitude": {"field":"Longitude","type":"quantitative"},
@@ -97,3 +177,6 @@
     }
     ]
 }
+
+//Things to add: fix tooltip, colour, the semi-circle border, text (position of darwin and hobart, font)
+//Optional: maybe make a couple more maps of regions and change this one to a chloropeth

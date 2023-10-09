@@ -52,3 +52,6 @@
         }
     ]
 }
+
+// Things to add: font, fontweight, axes (maybe do dashes, fix weight of lines), axes titles weight
+// add multi selection for states to entire index, greys out other bars
