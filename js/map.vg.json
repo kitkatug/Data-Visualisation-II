@@ -42,7 +42,7 @@
             {
                 "name":"purp",
                 "select": {"type": "point", "fields":["Purpose"]},
-                "bind": {"name":"Purpose of Trip","input":"select","options": [null,"Business","Visiting","Holiday","Other"]}
+                "bind": {"name":"Purpose of Trip","input":"select","options": ["All","Business","Visiting","Holiday","Other"]}
             }
         ],
         "projection": {"type": "equirectangular"},
@@ -178,5 +178,3 @@
     ]
 }
 
-//Things to add: fix tooltip, colour, the semi-circle border, text (position of darwin and hobart, font)
-//Optional: maybe make a couple more maps of regions and change this one to a chloropeth
