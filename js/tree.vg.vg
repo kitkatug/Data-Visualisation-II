@@ -1,99 +1,247 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Treemap",
-  "width": 960,
-  "height": 500,
-  "data": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/airBnbPos.csv"
+  },
+  "transform": [
     {
-      "name": "tree",
-      "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/tourism.csv",
-      "transform" :[
-        {"type": "treemap", "field":"price"}
-      ]
-    }
-  ],
-  "scales": [
-    {
-      "name": "color",
-      "type": "ordinal",
-      "range": [
-        "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#e6550d",
-        "#fd8d3c", "#fdae6b", "#fdd0a2", "#31a354", "#74c476",
-        "#a1d99b", "#c7e9c0", "#756bb1", "#9e9ac8", "#bcbddc",
-        "#dadaeb", "#636363", "#969696", "#bdbdbd", "#d9d9d9"
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "count_*"
+        }
+      ],
+      "groupby": [
+        "State",
+        "price"
       ]
     },
     {
-      "name": "size",
-      "type": "ordinal",
-      "domain": [0, 1, 2, 3],
-      "range": [256, 28, 20, 14]
+      "stack": "count_*",
+      "groupby": [],
+      "as": [
+        "stack_count_State1",
+        "stack_count_State2"
+      ],
+      "offset": "normalize",
+      "sort": [
+        {
+          "field": "State",
+          "order": "ascending"
+        }
+      ]
     },
     {
-      "name": "opacity",
-      "type": "ordinal",
-      "domain": [0, 1, 2, 3],
-      "range": [0.15, 0.5, 0.8, 1.0]
+      "window": [
+        {
+          "op": "min",
+          "field": "stack_count_State1",
+          "as": "x"
+        },
+        {
+          "op": "max",
+          "field": "stack_count_State2",
+          "as": "x2"
+        },
+        {
+          "op": "dense_rank",
+          "as": "rank_price"
+        },
+        {
+          "op": "distinct",
+          "field": "price",
+          "as": "distinct_price"
+        }
+      ],
+      "groupby": [
+        "State"
+      ],
+      "frame": [
+        null,
+        null
+      ],
+      "sort": [
+        {
+          "field": "Cylinders",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "window": [{
+        "op": "rank",
+        "as": "rank"
+      }],
+      "sort": [{ "field": "price", "order": "descending" }]
+    }, {
+      "filter": "datum.rank <= 15"
+    },
+    {
+      "window": [
+        {
+          "op": "dense_rank",
+          "as": "rank_State"
+        }
+      ],
+      "frame": [
+        null,
+        null
+      ],
+      "sort": [
+        {
+          "field": "State",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "stack": "count_*",
+      "groupby": [
+        "State"
+      ],
+      "as": [
+        "y",
+        "y2"
+      ],
+      "offset": "normalize",
+      "sort": [
+        {
+          "field": "price",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.y + (datum.rank_price - 1) * datum.distinct_price * 0.01 / 100",
+      "as": "ny"
+    },
+    {
+      "calculate": "datum.y2 + (datum.rank_price - 1) * datum.distinct_price * 0.01 / 100",
+      "as": "ny2"
+    },
+    {
+      "calculate": "datum.x + (datum.rank_State - 1) * 0.01",
+      "as": "nx"
+    },
+    {
+      "calculate": "datum.x2 + (datum.rank_State - 1) * 0.01",
+      "as": "nx2"
+    },
+    {
+      "calculate": "(datum.nx+datum.nx2)/2",
+      "as": "xc"
+    },
+    {
+      "calculate": "(datum.ny+datum.ny2)/2",
+      "as": "yc"
     }
   ],
-  "marks": [
+  "vconcat": [
     {
-      "type": "rect",
-      "from": {"data": "tree"},
-      "interactive": false,
-      "properties": {
-        "enter": {
-          "x": {"field": "x"},
-          "y": {"field": "y"},
-          "fill": {"scale": "color", "field": "name"}
-        }
+      "mark": {
+        "type": "text",
+        "baseline": "middle",
+        "align": "center"
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "min",
+          "field": "xc",
+          "title": "State",
+          "axis": {
+            "orient": "top"
+          }
+        },
+        "color": {
+          "field": "State",
+          "legend": null
+        },
+        "text": {"field": "State"}
       }
     },
     {
-      "type": "rect",
-      "from": {
-        "data": "tree",
-        "transform": [{"type":"filter", "test":"!d.values"}]
-      },
-      "properties": {
-        "enter": {
-          "x": {"field": "x"},
-          "y": {"field": "y"},
-          "width": {"field": "width"},
-          "height": {"field": "height"},
-          "stroke": {"value": "#fff"}
+      "layer": [
+        {
+          "mark": {
+            "type": "rect"
+          },
+          "encoding": {
+            "x": {
+              "field": "nx",
+              "type": "quantitative",
+              "axis": null
+            },
+            "x2": {"field": "nx2"},
+            "y": {
+              "field": "ny",
+              "type": "quantitative"
+            },
+            "y2": {"field": "ny2"},
+            "color": {
+              "field": "State",
+              "type": "nominal",
+              "legend": null
+            },
+            "opacity": {
+              "field": "price",
+              "type": "quantitative",
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "State",
+                "type": "nominal"
+              },
+              {
+                "field": "price",
+                "type": "quantitative"
+              }
+            ]
+          }
         },
-        "update": {
-          "fill": {"value": "rgba(0,0,0,0)"}
-        },
-        "hover": {
-          "fill": {"value": "red"}
+        {
+          "mark": {
+            "type": "text",
+            "baseline": "middle",
+            "format":"$.2f"
+          },
+          "encoding": {
+            "x": {
+              "field": "xc",
+              "type": "quantitative",
+              "axis": null
+            },
+            "y": {
+              "field": "yc",
+              "type": "quantitative",
+              "axis": {
+                "title": "Price"
+              }
+            },
+            "text": {
+              "field": "State",
+              "type": "nominal"
+            }
+          }
         }
-      }
-    },
-    {
-      "type": "text",
-      "from": {
-        "data": "tree",
-        "transform": [{"type":"filter", "test":"d.values"}]
-      },
-      "interactive": false,
-      "properties": {
-        "enter": {
-          "x": {"field": "x"},
-          "y": {"field": "y"},
-          "dx": {"field": "width", "mult": 0.5},
-          "dy": {"field": "height", "mult": 0.5},
-          "font": {"value": "Helvetica Neue"},
-          "fontSize": {"scale": "size", "field": "depth"},
-          "align": {"value": "center"},
-          "baseline": {"value": "middle"},
-          "fill": {"value": "#000"},
-          "fillOpacity": {"scale": "opacity", "field": "depth"},
-          "text": {"field": "name"}
-        }
-      }
+      ]
     }
-  ]
+  ],
+  "resolve": {
+    "scale": {
+      "x": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": ""
+    },
+    "concat": {"spacing": 10},
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "labels": false,
+      "grid": false
+    }
+  }
 }
-  
