@@ -1,6 +1,7 @@
 {
     "$shema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":"Most Popular State Travelled To",
+    "background":"#e8f5d0",
     "width":800,
     "layer": [
         {

@@ -1,9 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average Airbnb Prices Across the States",
+  "background":"#e8f5d0",
   "data": {
     "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/airBnbPos.csv"
   },
+  "width": 300,
+  "height":300,
   "layer": [{
     "mark": {"type": "arc", "innerRadius": 15, "stroke": "#fff"}
   },{
@@ -15,7 +18,14 @@
   "encoding": {
     "theta": {"aggregate":"average","field": "price", "type": "quantitative", "stack": true, "sort":"descending"},
     "radius": {"aggregate":"average","field": "price", "scale": {"type": "sqrt", "zero": true, "rangeMin": -150}},
-    "color": {"field": "State", "type": "nominal", "legend": true}
+    "color": {"field": "State", "type": "nominal"}
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
   }
 }
 

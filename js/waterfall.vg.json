@@ -3,8 +3,9 @@
   "data": {
     "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/waterfall.csv"
   },
+  "background":"#e8f5d0",
   "width": 800,
-  "height": 400,
+  "height": 300,
   "transform": [
     {"window": [{"op": "sum", "field": "amount", "as": "sum"}]},
     {"window": [{"op": "lead", "field": "label", "as": "lead"}]},
@@ -79,7 +80,8 @@
         "opacity": 1,
         "strokeWidth": 1.5,
         "xOffset": -21.5,
-        "x2Offset": 21.5
+        "x2Offset": 21.5,
+        "clip":true
       },
       "encoding": {
         "x2": {"field": "lead"},
@@ -87,14 +89,14 @@
       }
     },
     {
-      "mark": {"type": "text", "dy": -4, "baseline": "bottom"},
+      "mark": {"type": "text", "dy": -4, "baseline": "bottom","clip":true},
       "encoding": {
         "y": {"field": "sum_inc", "type": "quantitative"},
         "text": {"field": "sum_inc", "type": "nominal"}
       }
     },
     {
-      "mark": {"type": "text", "dy": 4, "baseline": "top"},
+      "mark": {"type": "text", "dy": 4, "baseline": "top","clip":true},
       "encoding": {
         "y": {"field": "sum_dec", "type": "quantitative"},
         "text": {"field": "sum_dec", "type": "nominal"}
