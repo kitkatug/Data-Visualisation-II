@@ -4,7 +4,7 @@
     "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/waterfall.csv"
   },
   "width": 800,
-  "height": 450,
+  "height": 400,
   "transform": [
     {"window": [{"op": "sum", "field": "amount", "as": "sum"}]},
     {"window": [{"op": "lead", "field": "label", "as": "lead"}]},
@@ -44,15 +44,18 @@
   },
   "layer": [
     {
-      "mark": {"type": "bar", "size": 45},
+      "mark": {"type": "bar", "size": 45,"clip":true},
       "encoding": {
         "y": {
           "field": "previous_sum",
           "type": "quantitative",
           "title": "Total Trips",
-          "axis": {"axisColor": "black", "gridDash": [2], "ticks": false}
+          "axis": {"gridDash": [2], "ticks": false},
+          "scale": {"domain":[76000,110000]}
         },
-        "y2": {"field": "sum"},
+        "y2": {
+          "field": "sum"
+        },
         "color": {
           "condition": [
             {
