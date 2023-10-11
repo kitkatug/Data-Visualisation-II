@@ -50,7 +50,6 @@
           "field": "previous_sum",
           "type": "quantitative",
           "title": "Total Trips",
-          "scale": {"domain": [76000, 106000]},
           "axis": {"axisColor": "black", "gridDash": [2], "ticks": false}
         },
         "y2": {"field": "sum"},
