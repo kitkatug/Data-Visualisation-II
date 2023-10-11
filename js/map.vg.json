@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Most Popular Tourisim Spots vs AirBnb Locations",
-    "width": 800,
-    "height": 800,
+    "width": 500,
+    "height": 500,
     "layer": [
     {
         "data": {
@@ -177,5 +177,3 @@
     }
     ]
 }
-
-// delete tooltip, change to using zoom brush selection, change colours cuz ew, fix font
