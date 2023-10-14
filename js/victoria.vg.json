@@ -24,6 +24,16 @@
         "data":{
             "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/airBnbPos.csv"
         },
+        "transform": [
+            {
+                "filter": {
+                    "field": "State",
+                    "oneOf": [
+                        "Victoria"
+                    ]
+                }
+            }
+        ],
         "projection": {"type": "mercator"},
         "mark": {"type":"circle","fill":"palevioletred","stroke":"palevioletred", "opacity":0.5},
         "encoding": {
@@ -38,6 +48,16 @@
         "data": {
             "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"
         },
+        "transform": [
+            {
+                "filter": {
+                    "field": "State",
+                    "oneOf": [
+                        "Victoria"
+                    ]
+                }
+            }
+        ],
         "params": [
             {
                 "name":"purp",
@@ -88,112 +108,12 @@
                 "filter": {
                     "field": "Region",
                     "oneOf": [
-                        "Melbourne", "Brisbane"
+                        "Melbourne"
                     ]
                 }
             }
         ],
         "mark": {"type": "text","fontSize":15,"dx":35,"dy":25},
-        "encoding": {
-            "text": {"field": "Region","type": "nominal"},
-            "longitude": {"field":"Longitude","type":"quantitative"},
-            "latitude": {"field":"Latitude","type":"quantitative"}
-        }
-    },
-    {
-        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-        "projection": {"type": "mercator"},
-        "transform": [
-            {
-                "filter": {
-                    "field": "Region",
-                    "oneOf": [
-                        "Hobart"
-                    ]
-                }
-            }
-        ],
-        "mark": {"type": "text","fontSize":15,"dx":30,"dy":15},
-        "encoding": {
-            "text": {"field": "Region","type": "nominal"},
-            "longitude": {"field":"Longitude","type":"quantitative"},
-            "latitude": {"field":"Latitude","type":"quantitative"}
-        }
-    },
-    {
-        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-        "projection": {"type": "mercator"},
-        "transform": [
-            {
-                "filter": {
-                    "field": "Region",
-                    "oneOf": [
-                        "Sydney", "Canberra"
-                    ]
-                }
-            }
-        ],
-        "mark": {"type": "text","fontSize":15,"dx":45},
-        "encoding": {
-            "text": {"field": "Region","type": "nominal"},
-            "longitude": {"field":"Longitude","type":"quantitative"},
-            "latitude": {"field":"Latitude","type":"quantitative"}
-        }
-    },
-    {
-        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-        "projection": {"type": "mercator"},
-        "transform": [
-            {
-                "filter": {
-                    "field": "Region",
-                    "oneOf": [
-                        "Perth"
-                    ]
-                }
-            }
-        ],
-        "mark": {"type": "text","fontSize":15,"dx":-25},
-        "encoding": {
-            "text": {"field": "Region","type": "nominal"},
-            "longitude": {"field":"Longitude","type":"quantitative"},
-            "latitude": {"field":"Latitude","type":"quantitative"}
-        }
-    },
-    {
-        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-        "projection": {"type": "mercator"},
-        "transform": [
-            {
-                "filter": {
-                    "field": "Region",
-                    "oneOf": [
-                        "Darwin"
-                    ]
-                }
-            }
-        ],
-        "mark": {"type": "text","fontSize":15,"dy":-25},
-        "encoding": {
-            "text": {"field": "Region","type": "nominal"},
-            "longitude": {"field":"Longitude","type":"quantitative"},
-            "latitude": {"field":"Latitude","type":"quantitative"}
-        }
-    },
-    {
-        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
-        "projection": {"type": "mercator"},
-        "transform": [
-            {
-                "filter": {
-                    "field": "Region",
-                    "oneOf": [
-                        "Adelaide"
-                    ]
-                }
-            }
-        ],
-        "mark": {"type": "text","fontSize":15,"dx":-25,"dy":-25},
         "encoding": {
             "text": {"field": "Region","type": "nominal"},
             "longitude": {"field":"Longitude","type":"quantitative"},
