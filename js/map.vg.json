@@ -25,7 +25,7 @@
             "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/airBnbPos.csv"
         },
         "projection": {"type": "mercator"},
-        "mark": {"type":"circle","fill":"palevioletred","stroke":"palevioletred"},
+        "mark": {"type":"circle","fill":"palevioletred","stroke":"palevioletred", "opacity":0.5},
         "encoding": {
             "longitude": {"field":"longitude", "type": "quantitative"},
             "latitude": {"field":"latitude", "type": "quantitative"},
@@ -41,13 +41,18 @@
         "params": [
             {
                 "name":"purp",
-                "select": {"type": "point", "fields":["Purpose"]},
-                "bind": {"name":"Purpose of Trip ","input":"select","options": ["All","Business","Visiting","Holiday","Other"]}
+                "select": {"type": "point", "fields": ["Purpose"]},
+                "bind": {
+                    "input":"select",
+                    "options": [null,"Business","Visiting","Holiday","Other"],
+                    "labels": ["Show All","Business","Visiting","Holiday","Other"],
+                    "name": "Purpose: "
+                }
             }
         ],
         "projection": {"type": "mercator"},
         "mark": {
-            "type": "circle", "strokeWidth": 3
+            "type": "square"
             },
         "encoding": {
             "longitude": {"field": "Longitude", "type":"quantitative"},
@@ -58,10 +63,10 @@
                     "field": "Purpose",
                     "type": "ordinal",
                     "scale": {
-                        "range": ["red","blue","green","purple"]
+                        "range": ["#05b514","#5eb5a7","#8c00e3","#c7130a"]
                     }
                 },
-                "value":"transparent"
+                "value":null
             },
             "size": {
                 "aggregate":"sum",
@@ -83,12 +88,32 @@
                 "filter": {
                     "field": "Region",
                     "oneOf": [
-                        "Melbourne", "Brisbane", "Hobart"
+                        "Melbourne", "Brisbane"
                     ]
                 }
             }
         ],
         "mark": {"type": "text","fontSize":15,"dx":35,"dy":25},
+        "encoding": {
+            "text": {"field": "Region","type": "nominal"},
+            "longitude": {"field":"Longitude","type":"quantitative"},
+            "latitude": {"field":"Latitude","type":"quantitative"}
+        }
+    },
+    {
+        "data": {"url": "https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/tourism.csv"},
+        "projection": {"type": "mercator"},
+        "transform": [
+            {
+                "filter": {
+                    "field": "Region",
+                    "oneOf": [
+                        "Hobart"
+                    ]
+                }
+            }
+        ],
+        "mark": {"type": "text","fontSize":15,"dx":30,"dy":15},
         "encoding": {
             "text": {"field": "Region","type": "nominal"},
             "longitude": {"field":"Longitude","type":"quantitative"},
