@@ -2,149 +2,180 @@
 <html>
 
 <head>
-  <title>Touring Around Australia</title>
+  <title>Touring Around Australia with Airbnb</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
   <!-- Import pure.css -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href=cs/main.css>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'" rel="stylesheet">
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-
-  <style>
-    body {
-        background-image: url('background.jpg');
-        background-size: cover;
-    }
-  </style>
-
 </head>
+<style>
+  body {
+    font-family: 'Playfair', serif;
+    background-image: url('background.jpg');
+  }
+</style>
 
 <body>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="page">
-
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>Touring Around Australia</h1>
-        <p>Touring around Australia is a captivating journey that promises diverse landscapes, rich cultural experiences, and unforgettable adventures. From the iconic Sydney Opera House and bustling streets of Melbourne to the rugged wilderness of the Outback, Australia's vast expanse offers something for every traveler.</p>
+  <div class="page"> <!-- Start Page -->
+    <h1 style="font-size: 50px; text-align: center;">Touring Around Australia with Airbnb</h1> <!-- Heading -->
+    <div class="row"> 
+      <div class="column3">
+        <p>
+          Australia's diverse landscapes, unique wildlife, and vibrant cities have long made it a popular destination for travelers from around the world. 
+          In recent years, the <strong>tourism</strong> landscape in the country has been reshaped by the rise of Airbnb, 
+          the home-sharing platform that has offered travelers an alternative to traditional hotel accommodations. 
+          The intersection of Airbnb and Australia's tourism industry presents an intriguing dynamic, one that is influenced by several key factors.  
+        </p>
       </div>
-      <div class="pure-u-1-2">
-        <br>
-        <br>
-        <br>
-        <br>
-        <div id="vis1" class="vis-container" style="margin-left: 15px;"></div>
+      <div class="column3">
+        <p>
+          First and foremost, the <strong>popularity</strong> of Airbnb in Australia is driven by the breathtaking diversity of tourism hotspots across the continent. 
+          From the iconic Sydney Opera House to the ancient wonders of the Great Barrier Reef and the rugged beauty of the Outback, there's something for every traveler. 
+          These unique <strong>destinations</strong>, often complemented by Airbnb's offerings, have played a significant role in shaping the modern Australian travel experience.
+        </p>
+      </div>
+      <div class="column3">
+        <p>
+          Understanding the impact of Airbnb on Australian tourism also requires a look at the numbers. Annually, millions of <strong>trips</strong> are made to Australia, 
+          reflecting the country's global appeal. These trips are not evenly distributed, as different states boast their own unique attractions, drawing varying numbers of visitors. 
+          hese distinctions also extend to the cost of <strong>accommodations</strong>, with average Airbnb <strong>prices</strong> fluctuating from state to state. 
+          These factors collectively influence the choices made by travelers, altering the tourism landscape in Australia and providing both visitors and locals with unique, personalized travel experiences.
+        </p>
       </div>
     </div>
-    <!-- end pure grid group -->
-  </div>
-  <div class="page">
-  <!-- pure grid group -->
-  <div class="pure-g">
-    <div class="pure-u-1-1">
-      
+    <!-- Adding Spaces Between Sections -->
+    <hr style="height:5px;border-width:0">
+    <h2 style="font: size 30px;"> Airbnb and Hot Tourism Spots </h2>
+    <hr style="height:15px;border-width:0">
+    <!-- Map Section -->
+    <div class="padcell">
+        <div id="vis1"></div>
+    </div> 
+    <p style="text-align:center;"><small><i> There are a variety of reasons why people travel, select a purpose above to see the variations in trips!
+    </i></small></p>
+    <div class="row">
+      <div class="column3">
+        <p>
+          The map details the locations of airbnbs around Australia* with a closer look at <b style="color:#544B31 ;"><strong>Victoria</strong></b> and <b style="color:#914630 ;"><strong>New South Wales</strong></b>,
+          clearly proving to be more densely populated areas. More Airbnbs = more tourist attractions, now <b style="color:#544B31 ;"><strong>Victoria</strong></b> and <b style="color:#914630 ;"><strong>New South Wales</strong></b>
+          are definitely states with some flaming hot attractions! Popular areas to travel to are the Great Ocean Roads in <b style="color:#544B31 ;"><strong>Victoria</strong></b> and the Bondi Iceburgs in <b style="color:#914630 ;"><strong>New South Wales</strong></b>.
+        </p>
+      </div>
+      <div class="column3">
+          <figure>
+            <img src="victoria.jpg" alt="Trulli" style="height:200px">
+              <figcaption>Great Ocean Road - VIC</figcaption>
+          </figure>
+      </div>
+      <div class="column3">
+        <figure>
+          <img src="nsw.jpg" alt="Trulli" style="height:200px">
+          <figcaption>Bondi Iceburgs - NSW</figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
-  <!-- end pure grid group -->
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="page">
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <div class="description description-left">
-          <h2>Two Columns Layout</h2>
-          <p>The first column contains text and the second column contains a visualisation.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+    <!-- End Map Section -->
+    <!-- Adding Spaces Between Sections -->
+    <hr style="height:5px;border-width:0">
+    <!-- Radial Plot Section -->
+    <h2 style="font: size 30px;">  Average Airbnb Prices By State</h2>  
+    <div class="row">
+      <div class="column">
+        <p>
+          The average Airbnb prices in various Australian states vary, reflecting the diverse and dynamic nature of the country's tourism landscape. Here are the average Airbnb prices for select states:
+        </p>
+        <p>
+          <b style="color:#914630 ;"><strong>New South Wales (NSW)</strong></b>: The average Airbnb price in <b style="color:#914630 ;"><strong>NSW</strong></b> is $136.60. This state is known for its stunning beaches, vibrant cities like Sydney, and iconic landmarks, making it a popular destination for both domestic and international travelers.
+        </p>
+        <p>
+          <b style="color:#26649D ;"><strong>South Australia (SA)</strong></b>: In <b style="color:#26649D ;"><strong>South Australia</strong></b>, the average Airbnb price is $216.78. SA offers a mix of cultural experiences, natural beauty, and fine wine regions, attracting tourists looking for a unique and relaxed atmosphere
+        </p>
+        <p>
+          <b style="color:#D1BD7A ;"><strong>Tasmania (TAS)</strong></b>: <b style="color:#D1BD7A ;"><strong>Tasmania's</strong></b> average Airbnb price is $152.02. This island state is celebrated for its pristine wilderness, rugged coastlines, and charming historical towns, making it an attractive destination for nature enthusiasts and history buffs.
+        </p>
+        <p>
+          <b style="color:#544B31 ;"><strong>Victoria (VIC)</strong></b>: <b style="color:#544B31 ;"><strong>Victoria</strong></b> has an average Airbnb price of $157.29. With the cultural mecca of Melbourne and a wide range of natural attractions, this state offers a diverse travel experience, catering to city explorers and outdoor enthusiasts alike.
+        </p>
+        <p>
+          <b style="color:#B07865 ;"><strong>Western Australia (WA)</strong></b>: The average Airbnb price in <b style="color:#B07865 ;"><strong>Western Australia </strong></b> is $143.39. This state is known for its vast landscapes, stunning beaches, and unique wildlife, making it a magnet for travelers seeking adventure and natural beauty.
+        </p>
+      </div>
+      <div class="column">
+        <div id="vis3"></div>
+        <p>
+          These varying price points reflect the different attractions, experiences, and demand for accommodations in each state. Travelers can choose from a range of options to suit their preferences and budget when exploring the diverse and captivating destinations that Australia has to offer.        
+        </p>
+      </div>
+    </div>
+    <!-- End Radial Plot Section -->
+    <!--Waterfall Section-->
+    <h2 style="font: size 30px;"> Number of Trips Made Yearly</h2>
+    <div class="description-center">
+      <div id="vis2"></div>
+    </div>
+    <div class="row"> 
+      <div class="column3">
+        <p>
+          In 2010-11, Australian tourism saw substantial growth, significantly contributing to the nation's economy. According to the <strong>Australian Bureau of Statistics (ABS)</strong>, the tourism industry added approximately $94.8 million daily to Australia's economy.
+          Despite global economic challenges and natural disasters, the sector experienced moderate growth, primarily driven by a 4.4% increase in consumption by international visitors. The number of overseas visitors to Australia rose by 3.8%, with average consumption per visitor remaining stable, up by 0.6%.
+        </p>
+      </div>
+      <div class="column3">
+        <p>
+          The fiscal year marked a record of 5.9 million short-term overseas visitor arrivals, led by China, New Zealand, and Malaysia, accounting for a significant portion. China and Southeast Asia collectively represented nearly one in four short-term arrivals, up from one in six five years prior.
+          In the context of this growth, it's noteworthy that domestic tourism consumption increased at a rate of 2.1%, less than half of international consumption's growth at 4.4%.
+          </p>
+      </div>
+      <div class="column3">
+        <p>
+          Part-time employment was significant in the tourism industry, with 43.7% of employees working part-time, well above the national average of 29.4%. Overall, the tourism sector employed 513,700 people, contributing 8.0% of Australia's total export earnings during the 2010-11 period.
+          This data is detailed in the 2010-11 edition of the Tourism Satellite Account (cat. no. 5249.0), available for free download from the ABS website.
+          </p>
+      </div>
+    </div>
+    <!-- End Waterfall Section -->
+    <!-- Bar Section -->
+    <h2>Competition of the States</h2>
+      <div class="row"> 
+        <div class="column3">
+          <p>
+            <b style="color:#914630 ;"><strong>New South Wales</strong></b> emerged as the most frequented state in Australia, attracting travelers for a multitude of purposes. Whether it's for business, holidays, general visits, or other reasons, <b style="color:#914630 ;"><strong>New South Wales</strong></b> consistently held the top spot in terms of visitor numbers. The vibrant city of Sydney, with its iconic landmarks, served as a magnet for tourists seeking leisure and cultural experiences.
+          </p>
+          <p>
+            <b style="color:#544B31 ;"><strong>Victoria</strong></b> closely followed, ranking second overall, and proving particularly popular for holidaymakers and general visits. 
+          </p>
         </div>
-      </div>
-    </div>
-  </div>
-    <div class="page">
-      <div class="pure-u-1-2">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-  <br>
-  <br>
-  <br>
-  <div class="page">
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-2">
-        <br>
-        <br>
-        <br>
-        <div id="vis3" class="vis-container" style="margin-left: 15px;"></div>
-      </div>
-      <div class="pure-u-1-2">
-        <div class="description description-left">
-          <h2>Three Equal Columns</h2>
-          <p>Using all three columns without merging. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat
-            sed. Egestas purus viverra accumsan in nisl. Egestas purus viverra accumsan in nisl.</p>
+        <div class="column3">
+          <p>
+            Melbourne's cosmopolitan appeal, combined with the state's diverse natural attractions, drew in a diverse range of travelers.
+          </p>
+          <p>
+            <b style="color:#698D34 ;"><strong>Queensland</strong></b>, on the other hand, secured the third spot for all purposes, including business, holiday, general visits, and other reasons. The state's stunning coastlines, tropical destinations, and vibrant cities, like Brisbane and the Gold Coast, made it an attractive choice for tourists seeking a mix of relaxation and adventure.
+          </p>
         </div>
-      </div>
-    </div>
-    <!-- end pure grid group -->
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="page">
-    <!-- pure grid group -->
-      <div class="pure-u-1-1">
-        <div class="description description-left">
-          <h2>Three Equal Columns</h2>
-          <p>Using all three columns without merging. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat
-            sed. Egestas purus viverra accumsan in nisl. Egestas purus viverra accumsan in nisl.</p>
+        <div class="column3">
+          <p>
+            In summary, <b style="color:#914630 ;"><strong>New South Wales</strong></b> dominated as the most traveled-to state across various purposes, with <b style="color:#544B31 ;"><strong>Victoria</strong></b> and <b style="color:#698D34 ;"><strong>Queensland</strong></b> also enjoying their share of visitor traffic, each offering unique experiences and attractions.
+          </p>
         </div>
-      </div>
-      <div class="pure-g">
-        <div class="pure-u-1-2">
-          <div id="vis4" class="vis-container"></div>
+        <div class="description-center3">
+          <div id="vis4"></div>
         </div>
     </div>
-    <!-- end pure grid group -->
+    <hr style="height:39px;border-width:0">
   </div> <!-- end page -->
-  <br>
-  <br>
-  <br>
+
 
   <script type="text/javascript">
     var specVis1 = "js/map.vg.json";

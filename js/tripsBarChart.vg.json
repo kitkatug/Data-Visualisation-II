@@ -1,7 +1,7 @@
 {
     "$shema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":"Most Popular State Travelled To",
-    "background":"#e8f5d0",
+    "background":"#c9e497",
     "width":800,
     "layer": [
         {
@@ -10,16 +10,31 @@
                 "type":"bar",
                 "point":true
             },
+            "params": [{
+                "name": "stat",
+                "select": {"type": "point", "fields": ["State"]},
+                "bind": "legend"
+              }],
             "encoding": {
                 "x":{"field":"Purpose"},
                 "y":
                 {
                     "aggregate":"sum",
                     "field":"Trips",
-                    "type":"quantitative"
+                    "type":"quantitative",
+                    "axis": {"domain": false, "grid": false, "ticks": false}
                 },
-                "color": {"field": "State"},
+                "color": {
+                    "field":"State",
+                    "scale": {
+                        "range": ["#8E6B69","#914630","#9F763B","#698D34","#26649D","#D1BD7A","#544B31","#B07865"]
+                    }
+                },
                 "xOffset": {"field": "State"},
+                "opacity": {
+                    "condition": {"param": "stat", "value": 1},
+                    "value": 0.2
+                },
                 "tooltip": [
                     {"title":"Purpose","field":"Purpose","type":"nominal"},
                     {"title":"State","field": "State", "type":"nominal"},
@@ -51,5 +66,6 @@
             "data": {"values": [{}]},
             "mark": {"type": "text","dx":285,"dy":-75,"text": ["Total Trips:"],"fontWeight":"bold"}
         }
-    ]
+    ],
+    "config": {"text": {"fontWeight": "bold", "color": "#404040"},"view": {"stroke": null}}
 }

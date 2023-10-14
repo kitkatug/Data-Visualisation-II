@@ -1,9 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title":"Number of Trips Made Over the Years",
   "data": {
     "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/waterfall.csv"
   },
-  "background":"#e8f5d0",
+  "background":"#c9e497",
   "width": 800,
   "height": 300,
   "transform": [
@@ -51,7 +52,7 @@
           "field": "previous_sum",
           "type": "quantitative",
           "title": "Total Trips",
-          "axis": {"gridDash": [2], "ticks": false},
+          "axis": {"domain": false, "grid": false, "ticks": false},
           "scale": {"domain":[76000,110000]}
         },
         "y2": {
@@ -61,11 +62,11 @@
           "condition": [
             {
               "test": "datum.label === '1998'",
-              "value": "null"
+              "value": "#698D34"
             },
-            {"test": "datum.sum < datum.previous_sum", "value": "#f78a64"}
+            {"test": "datum.sum < datum.previous_sum", "value": "#914630"}
           ],
-          "value": "#93c4aa"
+          "value": "#698D34"
         },
         "tooltip":[
           {"title":"Total Trips","field":"tot_trips","type":"quantitative"},
@@ -103,5 +104,5 @@
       }
     }
   ],
-  "config": {"text": {"fontWeight": "bold", "color": "#404040"}}
+  "config": {"text": {"fontWeight": "bold", "color": "#404040"},"view": {"stroke": null}}
 }
