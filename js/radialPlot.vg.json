@@ -18,7 +18,11 @@
   "encoding": {
     "theta": {"aggregate":"average","field": "price", "type": "quantitative", "stack": true, "sort":"descending"},
     "radius": {"aggregate":"average","field": "price", "scale": {"type": "sqrt", "zero": true, "rangeMin": -150}},
-    "color": {"field": "State", "type": "nominal"}
+    "color": {"field": "State", "type": "nominal"},
+    "tooltip": [
+      {"title":"State", "field":"State", "type":"nominal"},
+      {"title":"Average Airbnb Price", "field":"price", "type":"quantitative","aggregate":"average","format":"$0.2f"}
+    ]
   },
   "config": {
     "style": {
