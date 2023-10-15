@@ -4,7 +4,7 @@
   "data": {
     "url":"https://raw.githubusercontent.com/kitkatug/Data-Visualisation-II/main/data/waterfall.csv"
   },
-  "background":"#c9e497",
+  "background":"#d3dfbd",
   "width": 800,
   "height": 300,
   "transform": [

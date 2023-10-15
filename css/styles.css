@@ -66,3 +66,8 @@ figcaption {
     font-size: 15px;
     text-align: center
 }
+
+#box1 {
+    background-color: #d3dfbd;
+    border-radius: 30px;
+}
